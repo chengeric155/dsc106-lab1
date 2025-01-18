@@ -13,6 +13,12 @@ body {
   accent-color: var(--color-accent); /* For forms and other accentable elements */
 }
 
+#monkey {
+  max-width: 100%; /* Ensure the image shrinks to fit the container */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Removes inline spacing for better layout control */
+}
+
 nav {
   display: flex;
   margin-bottom: 1em;
@@ -151,6 +157,4 @@ h1{
     font-style: italic; 
     color: #666;
   }
-  
-  
 }
