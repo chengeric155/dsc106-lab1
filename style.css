@@ -14,9 +14,9 @@ body {
 }
 
 #monkey {
-  max-width: 100%; /* Ensure the image shrinks to fit the container */
-  height: auto; /* Maintain aspect ratio */
-  display: block; /* Removes inline spacing for better layout control */
+  max-width: 100%; 
+  height: auto; 
+  display: block; 
 }
 
 nav {
