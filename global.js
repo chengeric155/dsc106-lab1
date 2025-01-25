@@ -19,7 +19,7 @@ let pages = [
     { url: "https://github.com/chengeric155", target: "_blank", title: 'Profile' },
     { url: 'CV/', title: 'CV' },
 ];
-let base = document.querySelector('base')?.href
+let base = document.querySelector('base')?.href;
 
 let nav = document.createElement('nav');
 document.body.prepend(nav);
