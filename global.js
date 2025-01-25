@@ -19,6 +19,8 @@ let pages = [
     { url: "https://github.com/chengeric155", target: "_blank", title: 'Profile' },
     { url: 'CV/', title: 'CV' },
 ];
+let base = document.querySelector('base')?.href
+
 let nav = document.createElement('nav');
 document.body.prepend(nav);
 for (let p of pages) {
@@ -26,7 +28,7 @@ for (let p of pages) {
     let title = p.title;
     const ARE_WE_HOME = document.documentElement.classList.contains('home');
     if (!ARE_WE_HOME && !url.startsWith('http')) {
-        url = '../' + url;
+        url = base + url;
     }
 
     let a = document.createElement('a');
@@ -38,7 +40,7 @@ for (let p of pages) {
         a.classList.add('current');
     }
     if (a.host !== location.host) {
-        a.target = "_blank"
+        a.target = "_blank";
     }
 }
 
