@@ -19,14 +19,21 @@ let pages = [
     { url: "https://github.com/chengeric155", target: "_blank", title: 'Profile' },
     { url: 'CV/', title: 'CV' },
 ];
+
+// Detect the base URL for GitHub Pages
+let base = document.querySelector('base')?.href || `${location.origin}${location.pathname.split('/').slice(0, -1).join('/')}/`;
+
 let nav = document.createElement('nav');
 document.body.prepend(nav);
+
 for (let p of pages) {
     let url = p.url;
     let title = p.title;
     const ARE_WE_HOME = document.documentElement.classList.contains('home');
-    if (!ARE_WE_HOME && !url.startsWith('http')) {
-        url = '../' + url;
+
+    // Adjust URLs for GitHub Pages
+    if (!url.startsWith('http')) {
+        url = ARE_WE_HOME ? `${base}${url}` : `${base}../${url}`;
     }
 
     let a = document.createElement('a');
@@ -38,7 +45,7 @@ for (let p of pages) {
         a.classList.add('current');
     }
     if (a.host !== location.host) {
-        a.target = "_blank"
+        a.target = "_blank";
     }
 }
 

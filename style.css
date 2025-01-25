@@ -124,7 +124,7 @@ h1{
     font-size: 1.8em;
     margin-top: 1.5em; 
     margin-bottom: 0.5em; 
-    color: #2c3e50; 
+    /* color: #2c3e50;  */
     border-bottom: 2px solid #2c3e50; 
     padding-bottom: 0.2em; 
   }
@@ -133,22 +133,22 @@ h1{
     font-size: 1.4em;
     margin-top: 1em; 
     margin-bottom: 0.3em; 
-    color: #34495e; 
+    /* color: #34495e;  */
   }
   
   p {
     margin: 0.5em 0; 
-    color: #555; 
+    /* color: #555;  */
   }
   
   p i {
     font-style: italic;
-    color: #555;
+    /* color: #555; */
   }
   
   p b {
     font-weight: bold;
-    color: #2c3e50; 
+    /* color: #2c3e50;  */
   }
   
   ul {
@@ -158,12 +158,12 @@ h1{
   
   ul li {
     margin-bottom: 0.5em; 
-    color: #444; 
+    /* color: #444;  */
   }
   
 
   time {
     font-style: italic; 
-    color: #666;
+    /* color: #666; */
   }
 }
