@@ -167,3 +167,47 @@ h1{
     /* color: #666; */
   }
 }
+
+/* Container styles */
+#profile-stats {
+  background: #f6f8fa;
+  border-radius: 6px;
+  padding: 16px;
+  max-width: 300px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+/* Definition list reset and layout */
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  margin: 0;
+}
+
+/* Term styling */
+#profile-stats dt {
+  color: #57606a;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Description styling */
+#profile-stats dd {
+  color: #24292f;
+  font-size: 14px;
+  margin: 0;
+  text-align: right;
+  font-weight: 700;
+}
+
+/* Optional: Add a border between items */
+#profile-stats dt:not(:first-child) {
+  border-top: 1px solid #d0d7de;
+  padding-top: 12px;
+}
+
+#profile-stats dd:not(:first-of-type) {
+  border-top: 1px solid #d0d7de;
+  padding-top: 12px;
+}
