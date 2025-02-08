@@ -92,11 +92,13 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
 
     for (let project of projects) {
         const article = document.createElement('article');
-        console.log(article)
         article.innerHTML = `
             <${headingLevel}>${project.title}</${headingLevel}>
             <img src="${project.image}" alt="${project.title}">
-            <p>${project.description}</p>
+            <div>
+                <p>${project.description}</p>
+                <p><i>Year:</i> ${project.year}</p>
+            </div>
         `;
         containerElement.appendChild(article);
     }
@@ -106,3 +108,4 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
 export async function fetchGitHubData(username) {
     return fetchJSON(`https://api.github.com/users/${username}`);
 }
+

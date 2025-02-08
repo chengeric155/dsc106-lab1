@@ -211,3 +211,116 @@ h1{
   border-top: 1px solid #d0d7de;
   padding-top: 12px;
 }
+
+#projects-plot {
+  max-width: 20em;
+  margin-block: 2em;
+
+  overflow: visible;
+}
+
+
+
+/* Container for the legend */
+.legend {
+  list-style: none;
+  padding: 16px;
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* background: #f8f9fa; */
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  max-width: 100%;
+}
+
+/* Individual legend items */
+.legend li {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+  /* Remove individual item shadows since they're in a container now */
+}
+
+.legend li:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+
+/* Color swatch */
+.legend .swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  margin-right: 8px;
+  background-color: var(--color);
+}
+
+/* Value styling */
+.legend em {
+  color: #666;
+  font-style: normal;
+  margin-left: 6px;
+  font-size: 12px;
+}
+
+/* Make legend responsive */
+@media (max-width: 600px) {
+  .legend {
+      padding: 12px;
+      gap: 8px;
+  }
+}
+
+/* Container for plot and legend */
+.container {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  max-width: 100%;
+}
+
+.searchBar {
+  width: 100%; /* Makes the search bar full-width of its container */
+  /* max-width: 400px; You can adjust this based on your layout */
+  padding: 10px 15px; /* Adds padding for a better user experience */
+  font-size: 16px; /* Increases font size for readability */
+  border: 2px solid #ccc; /* Light gray border */
+  border-radius: 25px; /* Rounded corners */
+  margin-bottom: 1em;
+  background-color: #f8f9fa; /* Light background color */
+  color: #333; /* Dark text color for better contrast */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for focus state */
+}
+.searchBar:focus {
+  outline: none; /* Removes default outline on focus */
+  border-color: #007bff; /* Highlight the border with a blue color on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3); /* Add a subtle shadow */
+}
+.searchBar::placeholder {
+  color: #888; /* Placeholder text in a softer gray */
+  /* font-style: italic; Optional: italicizes the placeholder text */
+}
+
+
+
+&:has(path:hover) {
+  path:not(:hover) {
+    opacity: 0.5;
+  }
+}
+path {
+  transition: 300ms;
+  cursor: pointer;
+}
+.selected {
+  --color: oklch(60% 45% 0) !important;
+
+  &:is(path) {
+    fill: var(--color);
+  }
+}
