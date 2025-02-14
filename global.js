@@ -18,6 +18,7 @@ let pages = [
     { url: 'contact/', title: 'Contact' },
     { url: "https://github.com/chengeric155", target: "_blank", title: 'Profile' },
     { url: 'CV/', title: 'CV' },
+    { url: 'meta/', title: 'Meta'}
 ];
 let base = document.querySelector('base')?.href;
 
