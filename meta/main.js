@@ -110,22 +110,30 @@ function createScatterplot() {
         .nice();
     
     const yScale = d3.scaleLinear().domain([0, 24]).range([height, 0]);
-    
+
+    const [minLines, maxLines] = d3.extent(commits, (d) => d.totalLines);
+    const rScale = d3.scaleSqrt().domain([minLines, maxLines]).range([5, 50]); // adjust these values based on your experimentation
+
+    const sortedCommits = d3.sort(commits, (d) => -d.totalLines);
     const dots = svg.append('g').attr('class', 'dots');
     dots
       .selectAll('circle')
-      .data(commits)
+      .data(sortedCommits)
       .join('circle')
       .attr('cx', (d) => xScale(d.datetime))
       .attr('cy', (d) => yScale(d.hourFrac))
       .attr('r', 5)
       .attr('fill', 'steelblue')
+      .attr('r', (d) => rScale(d.totalLines))
+      .style('fill-opacity', 0.7) // Add transparency for overlapping dots
       .on('mouseenter', (event, commit) => {
+        d3.select(event.currentTarget).style('fill-opacity', 1); // Full opacity on hover
         updateTooltipContent(commit);
         updateTooltipVisibility(true);
         updateTooltipPosition(event);
       })
       .on('mouseleave', () => {
+        d3.select(event.currentTarget).style('fill-opacity', 0.7); // Restore transparency
         updateTooltipContent({});
         updateTooltipVisibility(false);
       });
@@ -190,7 +198,7 @@ function updateTooltipContent(commit) {
         minute: '2-digit',
     });
     author.textContent = commit.author || 'Unknown Author'; 
-    linesEdited.textContent = commit.linesEdited || 'N/A';
+    linesEdited.textContent = commit.totalLines || 'N/A';
 }
 
 function updateTooltipVisibility(isVisible) {
@@ -203,3 +211,5 @@ function updateTooltipPosition(event) {
     tooltip.style.left = `${event.clientX}px`;
     tooltip.style.top = `${event.clientY}px`;
 }
+
+
