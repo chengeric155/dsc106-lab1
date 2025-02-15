@@ -349,3 +349,7 @@ path {
   margin: 0;
   color: #555;
 }
+
+.gridlines {
+  color: lightgray;
+}
